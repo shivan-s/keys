@@ -1,38 +1,18 @@
-# sv
+# How To
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+1. Generate a Client Secret via form
 
-## Creating a project
-
-If you're seeing this, you've probably already done this step. Congrats!
-
+2. Obtain JWT
 ```sh
-# create a new project in the current directory
-npx sv create
-
-# create a new project in my-app
-npx sv create my-app
+http --form POST localhost:5173/api/v0/auth secret=ODUwZmJmMTMtNWUyNy00NTRlLTg4MmMtNjRlZmIyNmNiNTYwLk1YbFlaVGgwTTNsM1dIVmpTREpzU25CRFJXZHJT
+eTFSWWxsU01IaEtiV2RZYkZoSVdXdHdVRVYzWXc
 ```
 
-## Developing
+3. Use JWT
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```sh
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-To create a production version of your app:
+Can read JWT here: https://jwt.io
 
 ```sh
-npm run build
+http GET localhost:5173/api/v0/secret -h x-auth:eyJhbGciOiJIUzI1NiJ9.eyJpZCI6Ijg1MGZiZjEzLTVlMjctNDU0ZS04ODJjLTY0ZWZiMjZjYjU2MCIsIm5hbWUiO
+iJCaWxsaWUgSGFydmV5IiwiaWF0IjoxNzYzNTgxMzIyLCJleHAiOjE3NjM1ODQ5MjJ9.IdfopGg7xTzhQpykk5Lpu5aXPXoQn2JMtNhJI-Qm_tk --body
 ```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
