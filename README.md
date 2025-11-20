@@ -1,4 +1,6 @@
-# How To
+# Example of API Key Generation and Remote Functions in Svelte
+
+## Steps
 
 1. Generate a Client Secret via form
 
